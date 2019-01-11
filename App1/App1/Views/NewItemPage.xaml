@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.NewItemPage"
+             Title="New Item">
+    
+    <ContentPage.ToolbarItems>
+		<ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" AutomationId="AutomationId_Cancel">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+		<ToolbarItem Text="Save" Clicked="Save_Clicked" AutomationId="AutomationId_Save" >
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+		<ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+			<Label Text="Text" FontSize="Medium" />
+			<Entry AutomationId="AutomationId_Entry" Text="{Binding Item.Text}" FontSize="Small" />
+            <Label Text="Description" FontSize="Medium" />
+			<Editor AutomationId="AutomationId_Editor"  Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
+			<Label Text="Selector" FontSize="Medium" />
+			<Picker AutomationId="AutomationId_Picker" Title="Select something"  >
+				<Picker.ItemsSource>
+					<x:Array Type="{x:Type x:String}">
+						<x:String>Item1</x:String>
+						<x:String>Item2</x:String>
+						<x:String>Item3</x:String>
+						<x:String>Item4</x:String>
+						<x:String>Item5</x:String>
+					</x:Array>
+				</Picker.ItemsSource>
+			</Picker>
+			<Label Text="Slider" FontSize="Medium" />
+			<Slider  AutomationId="AutomationId_Slider"  Minimum="0" Maximum="1"  BackgroundColor="Black"/>
+			<Label Text="Switch" FontSize="Medium" />
+			<Switch  AutomationId="AutomationId_Switch"  IsToggled="false" />
+			<Label Text="Time Picker" FontSize="Medium" />
+			<TimePicker  AutomationId="AutomationId_TimePicker"  />
+			<Label Text="Date Picker" FontSize="Medium" />
+			<DatePicker AutomationId="AutomationId_DatePicker"  />
+			<Label Text="Stepper" FontSize="Medium" />
+			<Stepper AutomationId="AutomationId_Stopper"  Minimum="0" Maximum="10" Increment="1" />
+			<Button AutomationId="AutomationId_Button" Text="Click me" />
+		</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>
